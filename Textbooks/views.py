@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Textbook
+from django.http import HttpResponse
 
 def display_textbooks(request, course_code):
     # Retrieve textbooks filtered by course code and availability
@@ -10,4 +11,8 @@ def display_textbooks(request, course_code):
     else:
         context = {'message': "No textbooks available for this course."}
 
-    return render(request, 'Textbooks/display_textbooks.html', context)
+    return render(request, 'display_textbooks.html', context)
+
+def index(request):
+    return HttpResponse("Welcome to the Textbooks module.")
+
